@@ -11,6 +11,9 @@ const search__form = document.querySelector(".search");
 const reset__button = document.querySelector(".reset");
 const search__title = document.querySelector('[name="your-title"]');
 let favorites = [];
+if (localStorage.favorites) {
+  favorites = JSON.parse(localStorage.favorites);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   getMeals();
@@ -19,10 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentCard = e.target.closest(".card");
     let currentCard__id = currentCard.getAttribute("data-id");
 
-    if (e.target.closest("i").classList.contains("fa-heart")) {
-      if (!favorites.includes(currentCard__id)) favorites.push(currentCard__id);
-      localStorage.favorites = JSON.stringify(favorites);
-      e.target.classList.add("isFav");
+    if (e.target.classList.contains("fa-heart")) {
+      if (!favorites.includes(currentCard__id)) {
+        favorites.push(currentCard__id);
+        localStorage.favorites = JSON.stringify(favorites);
+        e.target.classList.add("isFav");
+      } else {
+        // remove from favorites
+        //localStorage.favorites = JSON.stringify(favorites);
+        e.target.classList.remove("isFav");
+      }
     } else {
       getMeal(currentCard__id);
       back__button.classList.remove("d-none");

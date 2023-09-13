@@ -55,6 +55,7 @@ body * {
 section {
   margin-top: 110px;
   padding: 40px 0 80px;
+  min-height: 100vh;
 }
 
 .container {
