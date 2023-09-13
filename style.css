@@ -1,0 +1,224 @@
+:root {
+  --press: "Press Start 2P", cursive;
+  --manrope: "Manrope", sans-serif;
+  --trans: 0.4s all ease;
+  --default-color: #344e41;
+}
+
+body {
+  background: #344e41;
+  overflow-x: hidden;
+  font-family: var(--manrope);
+  font-size: 18px;
+  margin: 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  outline: none;
+  background: none;
+  border: none;
+  background: #dad7cd;
+  color: #000;
+  padding: 10px 10px;
+  font-family: var(--manrope);
+  display: inline-block;
+  height: 40px;
+}
+
+textarea {
+  height: 120px;
+}
+
+.default {
+  background: #d4a373;
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--press);
+  transition: var(--trans);
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.default:hover {
+  background: #a3b18a;
+}
+
+section {
+  margin-top: 110px;
+  padding: 40px 0 80px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+section .cards {
+  column-count: 5;
+  column-gap: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--press);
+  color: #fff;
+  line-height: 1.4;
+}
+.d-none {
+  display: none;
+}
+
+section .card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: var(--trans);
+}
+
+section .card {
+  margin-bottom: 15px;
+  cursor: pointer;
+  position: relative;
+  break-inside: avoid;
+}
+
+.card:hover img {
+  filter: brightness(0.7);
+}
+
+.card p {
+  margin: 0;
+}
+
+.card .details {
+  background: #f0f0f0;
+  padding: 10px 15px;
+}
+
+.card .tags {
+  margin-top: 5px;
+}
+
+.card .tags span {
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.card .country {
+  background: red;
+}
+
+.card .category {
+  background: green;
+}
+
+.single-card {
+  display: flex;
+}
+
+img {
+  max-width: 100%;
+}
+
+.single-card .img {
+  width: 40%;
+}
+
+.single-card .img img {
+  display: block;
+}
+
+.single-card .info {
+  width: 60%;
+  background: #f0f0f0;
+  padding: 25px;
+}
+.back {
+  margin-top: 15px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+.logo img {
+  width: 60px;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  background: #e2725b;
+  padding: 10px 25px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  filter: drop-shadow(2px 4px 6px #333);
+}
+
+.search {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.reset {
+  background: #e2725b;
+}
+
+.copyrights {
+  text-align: center;
+  background-color: #e2725b;
+  padding: 15px;
+  font-size: 15px;
+}
+
+.favorite i {
+  color: var(--default-color);
+  font-size: 18px;
+}
+
+.favorite i.isFav {
+  color: red;
+}
+
+.favorite {
+  position: absolute;
+  right: 5px;
+}
+
+header .menu a {
+  color: #fff;
+  font-family: var(--press);
+  font-size: 14px;
+  margin-right: 20px;
+}

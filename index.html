@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe App</title>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="../favicon.png" alt="" />
+
+        <div class="menu">
+          <a href="#" class="recipes">Recipes</a>
+          <a href="#" class="favorites">Favorites</a>
+        </div>
+
+        <a href="#"><img src="../github.png" alt="" /></a>
+      </div>
+    </header>
+    <section class="meals">
+      <div class="container">
+        <h1 class="text-center title">Browse our recipes</h1>
+        <form class="search" autocomplete="off">
+          <input
+            type="text"
+            name="your-title"
+            placeholder="Enter the name of a dish..."
+          />
+          <button class="default" type="submit">Search</button>
+          <button class="default reset">Reset</button>
+        </form>
+        <div class="cards"></div>
+        <div class="meal"></div>
+        <div class="back text-right">
+          <button class="default back__button d-none">Back</button>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="copyrights">
+        Copyright © 2023 Oumaima Lairani. All Rights Reserved.
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/fontawesome.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
