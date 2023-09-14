@@ -1,0 +1,66 @@
+@media screen and (max-width: 991px) {
+  section .cards {
+    column-count: 3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section .cards {
+    column-count: 2;
+  }
+  .logo img {
+    width: 40px;
+  }
+
+  .single-card {
+    display: block;
+  }
+
+  .single-card .img,
+  .single-card .info {
+    width: 100%;
+  }
+
+  .single-card .img img {
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  section .cards {
+    column-count: 1;
+    display: block;
+  }
+
+  .search {
+    display: block;
+    text-align: center;
+  }
+
+  .search input {
+    margin-bottom: 10px;
+  }
+
+  .meals h1 {
+    font-size: 16px;
+  }
+
+  section {
+    margin-top: 60px;
+    padding: 40px 0 40px;
+  }
+
+  header .menu a {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  header {
+    padding: 5px 10px;
+  }
+  .logo img {
+    width: 30px;
+  }
+}

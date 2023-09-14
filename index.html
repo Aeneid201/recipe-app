@@ -14,6 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
   </head>
   <body>
     <header>
@@ -21,8 +22,8 @@
         <img src="favicon.png" alt="" />
 
         <div class="menu">
-          <a href="#" class="recipes">Recipes</a>
-          <a href="#" class="favorites">Favorites</a>
+          <a href="#" class="recipeLink active">Recipes</a>
+          <a href="#" class="favLink">Favorites</a>
         </div>
 
         <a href="https://github.com/Aeneid201/recipe-app.git" target="_blank"
@@ -43,12 +44,14 @@
           <button class="default reset">Reset</button>
         </form>
         <div class="cards"></div>
-        <div class="meal"></div>
-        <div class="back text-right">
+        <div class="back text-left">
           <button class="default back__button d-none">Back</button>
         </div>
+        <div class="meal"></div>
+        <div class="favorites"></div>
       </div>
     </section>
+
     <footer>
       <div class="copyrights">
         Copyright © 2023 Oumaima Lairani. All Rights Reserved.

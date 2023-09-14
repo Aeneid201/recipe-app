@@ -10,6 +10,9 @@ const back__button = document.querySelector(".back__button");
 const search__form = document.querySelector(".search");
 const reset__button = document.querySelector(".reset");
 const search__title = document.querySelector('[name="your-title"]');
+const favorites__section = document.querySelector(".favorites");
+const favorite__link = document.querySelector(".favLink");
+const recipe__link = document.querySelector(".recipeLink");
 let favorites = [];
 if (localStorage.favorites) {
   favorites = JSON.parse(localStorage.favorites);
@@ -20,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards__section.addEventListener("click", function (e) {
     let currentCard = e.target.closest(".card");
+
+    // if empty space is clicked
+    if (!currentCard) return;
+
     let currentCard__id = currentCard.getAttribute("data-id");
 
     if (e.target.classList.contains("fa-heart")) {
@@ -27,16 +34,59 @@ document.addEventListener("DOMContentLoaded", () => {
         favorites.push(currentCard__id);
         localStorage.favorites = JSON.stringify(favorites);
         e.target.classList.add("isFav");
+        currentCard.classList.add("favorite");
       } else {
-        // remove from favorites
-        //localStorage.favorites = JSON.stringify(favorites);
+        favorites.splice(favorites.indexOf(currentCard__id), 1);
         e.target.classList.remove("isFav");
+        currentCard.classList.remove("favorite");
+        localStorage.favorites = JSON.stringify(favorites);
       }
     } else {
       getMeal(currentCard__id);
       back__button.classList.remove("d-none");
       meal__section.classList.remove("d-none");
       cards__section.classList.add("d-none");
+    }
+  });
+
+  back__button.addEventListener("click", function (e) {
+    meal__section.innerHTML = "";
+    this.classList.add("d-none");
+    meal__section.classList.add("d-none");
+    cards__section.classList.remove("d-none");
+    title.textContent = "Browse our recipes";
+  });
+
+  search__form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (search__title.value !== "") {
+      cards__section.innerHTML = "";
+      searchByName(search__title.value);
+    }
+  });
+
+  reset__button.addEventListener("click", function (e) {
+    e.preventDefault();
+    cards__section.innerHTML = "";
+    search__title.value = "";
+    getMeals();
+  });
+
+  favorite__link.addEventListener("click", function () {
+    let notFavs = document.querySelectorAll(".card:not(.favorite)");
+    this.classList.add("active");
+    recipe__link.classList.remove("active");
+    for (let notFav of notFavs) {
+      notFav.classList.add("d-none");
+    }
+  });
+
+  recipe__link.addEventListener("click", function () {
+    let cards = document.querySelectorAll(".card");
+    favorite__link.classList.remove("active");
+    this.classList.add("active");
+    for (let card of cards) {
+      card.classList.remove("d-none");
     }
   });
 });
@@ -98,9 +148,9 @@ function renderMeals(obj) {
     }
   }
 
-  let card = `<div class="card" data-id="${obj["idMeal"]}"><img src="${
-    obj["strMealThumb"]
-  }">
+  let card = `<div class="card ${isFav ? "favorite" : ""}" data-id="${
+    obj["idMeal"]
+  }"><img src="${obj["strMealThumb"]}">
   <div class="details"><p class="title">${obj["strMeal"]}</p>
   <div class="tags">
   <span class="category">${obj["strCategory"]}</span>
@@ -139,26 +189,3 @@ function renderMeal(obj) {
     </div>`;
   meal__section.insertAdjacentHTML("beforeend", html);
 }
-
-back__button.addEventListener("click", function (e) {
-  meal__section.innerHTML = "";
-  this.classList.add("d-none");
-  meal__section.classList.add("d-none");
-  cards__section.classList.remove("d-none");
-  title.textContent = "Browse our recipes";
-});
-
-search__form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  if (search__title.value !== "") {
-    cards__section.innerHTML = "";
-    searchByName(search__title.value);
-  }
-});
-
-reset__button.addEventListener("click", function (e) {
-  e.preventDefault();
-  cards__section.innerHTML = "";
-  search__title.value = "";
-  getMeals();
-});
